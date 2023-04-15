@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <meta name="keywords" content="HTML5, CSS3, Javascript">
+   <meta name="description" content="Aula 2 - Javacript">
+   <meta name="author" content="Jonathas Borges">
+   <title>Aula 2 - Javascript</title>
+</head>
+<body>
+
+   <div>
+      <label for="raio">Informe o valor do raio: </label>
+      <input type="number" name="raio" id="raio" min="1" />
+
+      <label for="x1">Informe a coordenada x1: </label>
+      <input type="number" name="x1" id="x1" min="1" />
+
+      <label for="y1">Informe a coordenada y1: </label>
+      <input type="number" name="y1" id="y1" min="1" />
+
+
+      <button type="button" onClick="handleOnClick()">Enviar</button>   
+   </div>
+
+   <p id="resultadoArea"></p>
+   <p id="resultadoCircunferencia"></p>
+   <p id="resultadoCoordenadas"></p>
+
+   <script>
+
+      const handleOnClick = () => {
+         handleCalcArea();
+         handleCalcCircunferencia();
+         handleInOut();
+      }
+
+      const handleCalcArea = () => {
+         const pi = Math.PI 
+         const raio = document.getElementById("raio").value;
+         const area = pi * raio * raio;
+
+         const elementResultadoArea = document.getElementById("resultadoArea");
+         elementResultadoArea.textContent = "Resultado Area: " + area;
+
+         console.log("area: ",area);
+         return area;
+      }
+
+      const handleCalcCircunferencia = () => {
+         const pi = Math.PI 
+         const raio = document.getElementById("raio").value;
+
+         const circumferenceOfCircle = 2 * pi * raio;
+         const elementResultadoArea = document.getElementById("resultadoCircunferencia");
+         elementResultadoArea.textContent = "Resultado Circunferencia: " + circumferenceOfCircle;
+
+         console.log("Circunferencia: ",circumferenceOfCircle);
+
+         return circumferenceOfCircle;
+      }
+
+      const handleInOut = () => {
+         const a = 0; //Origem da circunferencia
+         const b = 0; //Origem da circunferencia
+
+         const x = document.getElementById("x1").value;
+         const y = document.getElementById("y1").value;
+
+         const resultado = document.getElementById("resultadoCoordenadas");
+         const distancia = Math.sqrt( Math.pow(x-a, 2) + Math.pow(y-b, 2) );
+
+         console.log("distancia : ", distancia );
+
+         const raio = document.getElementById("raio").value;
+         if (distancia < raio ){  
+            resultado.textContent = "O ponto esta dentro da circ" ;
+         }
+         else if(distancia == raio ){
+            resultado.textContent = "O ponto esta na circ" ;
+         }else {
+            resultado.textContent = "O ponto esta fora da circ" ;
+         }
+      }
+
+      const circle = (raio) => {
+         this.raio = raio;
+
+         this.calcArea = () => {
+            const pi = Math.PI
+            return pi * raio * raio;
+         }
+      }
+      
+      var raio = new circle(2);
+   </script>
+</body>
+</html>

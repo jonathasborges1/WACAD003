@@ -1,0 +1,39 @@
+table {
+	margin: 0 auto;
+	border-collapse: collapse;
+}
+
+td {
+	border: 1px solid #ccc;
+	width: 100px;
+	height: 100px;
+	font-size: 72px;
+	text-align: center;
+	vertical-align: middle;
+	cursor: pointer;
+}
+
+td:hover {
+	background-color: #eee;
+}
+
+td.winner {
+	background-color: #8bc34a;
+}
+
+#gameStatus {
+	margin-top: 10px;
+	font-size: 24px;
+	text-align: center;
+}
+
+#reset {
+	display: block;
+	margin: 10px auto;
+	padding: 10px;
+	font-size: 18px;
+	background-color: #8bc34a;
+	border: none;
+	color: #fff;
+	cursor: pointer;
+}

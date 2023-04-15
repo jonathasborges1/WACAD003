@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <meta name="description" content="Uma pagina Web">
+   <meta name="keywords" content="HTML, CSS, JS">
+   <title>Aula Javascript</title>
+   <script>
+
+      const handleCountSUM = () => {
+         const value1 = parseInt(document.getElementById("valor1").value);
+         const value2 = parseInt(document.getElementById("valor2").value);
+
+         document.getElementById("resultado").innerHTML = value1 + value2;
+      }
+      const handleCountSUB = () => {
+         const value1 = parseInt(document.getElementById("valor1").value);
+         const value2 = parseInt(document.getElementById("valor2").value);
+
+         document.getElementById("resultado").innerHTML = value1 - value2;
+      }
+      const handleCountMULT = () => {
+         const value1 = parseInt(document.getElementById("valor1").value);
+         const value2 = parseInt(document.getElementById("valor2").value);
+
+         document.getElementById("resultado").innerHTML = value1 * value2;
+      }
+      const handleCountDIV = () => {
+         const value1 = parseInt(document.getElementById("valor1").value);
+         const value2 = parseInt(document.getElementById("valor2").value);
+
+         document.getElementById("resultado").innerHTML = value1 / value2;
+      }
+   </script>
+</head>
+<body>
+   <p id="p1"></p>
+   <p id="p2"></p>
+   <p id="p3"></p>
+
+   <button type="button" onclick="myFunction1()" >Ativar JS Head</button>
+   <button type="button" onclick="myFunction3()" >Ativar JS EXTERNO</button>
+
+   <script>
+      document.getElementById("p2").innerHTML = "Java Script no Body"
+   </script>
+
+   <main style="display: flex; flex-direction: row; justify-content: center; align-items: flex-start; gap: 20px; border:0px solid red; padding: 8px">
+
+      <div style="display: flex; flex-direction: column; border: 0px solid blue">
+         <label for="valor1">Valor 1</label>
+         <input type="text" name="valor1" id="valor1">
+      </div>
+
+      <div style="border: 0px solid red">
+         <p >Operacao </p> 
+      </div>
+      
+      <div style="display: grid; border: 0px solid blue" >
+         <label for="valor2">Valor 2</label>
+         <input type="text" name="valor2" id="valor2" >
+      </div>
+      <div style="border: 0px solid red">
+         <p>
+            =
+         </p>
+      </div>
+
+      <p id="resultado"></p>
+
+   </main>
+
+   <section style="display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 10px; border:0px solid red; padding: 8px">
+      
+      <div style="border: 0px solid blue;"> 
+         <h6>Selecione a operacao que deseja realizar:</h6>
+      </div>
+      <div style="display: flex; gap: 30px; border: 0px solid blue"> 
+         <button type="button" onclick="handleCountSUM()" >+</button> 
+         <button type="button" onclick="handleCountSUB()" >-</button>
+         <button type="button" onclick="handleCountMULT()" >*</button>
+         <button type="button" onclick="handleCountDIV()" >/</button>
+      </div>
+   
+   </section>
+
+</body>
+</html>
+
+
+
+
+

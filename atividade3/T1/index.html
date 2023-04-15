@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <meta name="description" content="Aula 3 - Atividade 1 - Crie um questionario com 5 perguntas">
+   <meta name="keywords" content="HTML, CSS, JS">
+   <meta name="author" content="Jonathas Borges Cavalcante">
+   <title>Aula 3 - Atividade 1</title>
+</head>
+<body>
+   <form id="form" action="GET">
+      <fieldset style="display: flex; flex-direction: row; gap:20px; margin: 1rem 0px;" >
+         <legend>Questionario com 5 perguntas</legend>
+         <div class="pergunta" data-required="true">
+            <p>Questao 1</p>
+            <div style="padding: 0rem 1rem;">
+               <p>
+                  <input type="radio" name="q1" id="q1op1" value="1" data-required="true" required/>
+                  <label for="q1op1">Opcao 1</label>
+               </p>
+               <p>
+                  <input type="radio" name="q1" id="q1op2" value="0" data-required="true"/>
+                  <label for="q1op2">Opcao 2</label>
+               </p>
+            </div>
+
+         </div>
+
+         <div class="pergunta" data-required="true">
+            <p>Questao 2</p>
+            <div style="padding: 0rem 1rem;">
+               <p>
+                  <input type="radio" name="q2" id="q2op1" value="1" required />
+                  <label for="q2op1">Opcao 1</label>
+               </p>
+               <p>
+                  <input type="radio" name="q2" id="q2op2" value="0" />
+                  <label for="q2op2">Opcao 2</label>
+               </p>
+            </div>
+
+         </div>
+
+         <div class="pergunta" data-required="true">
+            <p>Questao 3</p>
+            <div style="padding: 0rem 1rem;">
+               <p>
+                  <input type="radio" name="q3" id="q3op1" value="1" required/>
+                  <label for="q3op1">Opcao 1</label>
+               </p>
+               <p>
+                  <input type="radio" name="q3" id="q3op2" value="0" />
+                  <label for="q3op2">Opcao 2</label>
+               </p>
+            </div>
+
+         </div>
+
+         <div class="pergunta" data-required="true">
+            <p>Questao 4</p>
+            <div style="padding: 0rem 1rem;">
+               <p>
+                  <input type="radio" name="q4" id="q4op1" value="1" required/>
+                  <label for="q4op1">Opcao 1</label>
+               </p>
+               <p>
+                  <input type="radio" name="q4" id="q4op2" value="0" />
+                  <label for="q4op2">Opcao 2</label>
+               </p>
+            </div>
+         </div>
+
+         <div class="pergunta" data-required="true">
+            <p>Questao 5</p>
+            <div style="padding: 0rem 1rem;">
+               <p>
+                  <input type="radio" name="q5" id="q5op1" value="1" />
+                  <label for="q5op1">Opcao 1</label>
+               </p>
+               <p>
+                  <input type="radio" name="q5" id="q5op2" value="0" />
+                  <label for="q5op2">Opcao 2</label>
+               </p>
+            </div>
+         </div>
+
+      </fieldset>
+      <button type="button" onclick="handleCalc();" >Calcular</button>
+   </form>
+
+   <p id="resultado"></p>
+
+   <script>
+
+      function validateForm() {
+         let formIsValid = true;
+         const perguntas = document.querySelectorAll('.pergunta[data-required="true"]');
+
+         perguntas.forEach(pergunta => {
+            const opcoes = pergunta.querySelectorAll('input[type="radio"]');
+            let opcaoSelecionada = false;
+
+            opcoes.forEach(opcao => {
+               if (opcao.checked) {
+                  opcaoSelecionada = true;
+               }
+            });
+
+            if (!opcaoSelecionada) {
+               formIsValid = false;
+               pergunta.style.color = 'red'; // destaca a pergunta que não foi respondida corretamente
+            } else {
+               pergunta.style.color = 'initial';
+            }
+         });
+
+         return formIsValid;
+      }
+
+      const handleCalc = () => {
+         if (validateForm()) {
+            const form = document.getElementById("form");
+            const resultado = parseInt(form.q1.value) + parseInt(form.q2.value) + parseInt(form.q3.value) + parseInt(form.q4.value) + parseInt(form.q5.value) 
+            const resultadoFinal = document.getElementById("resultado");
+            resultadoFinal.textContent = "Sua Nota: " + resultado;
+            
+            console.log("resultado: ",resultadoFinal.textContent);
+         } else {
+            alert('Por favor, preencha todas as perguntas obrigatórias.');
+         }
+
+      }
+   </script>
+
+</body>
+</html>
